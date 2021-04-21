@@ -1,4 +1,5 @@
 import express from 'express';
+import './database'
 const PORT = process.env.PORT || 3500;
 
 const app = express();
