@@ -1,19 +1,6 @@
-import express from 'express';
-import './database'
-import { routes } from "./routes";
+import { http } from "../src/http";
+import "./websocket/client";
 
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 3333;
 
-const app = express();
-
-app.use(express.json());
-app.use(routes);
-
-app.get('/', (request, response) => {
-    return response.json({ message: 'Olá nlw5' });
-});
-app.post('/', (request, response) => {
-    return response.json({ message: 'Usuário salvo com sucesso!' })
-});
-
-app.listen(PORT, () => console.log(`Server is running on ${PORT} `));
+http.listen(PORT, () => console.log(`Server is running on ${PORT} `));
